@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "teacher-sheets",
+  "private_key_id": "7ca6f414fc77827f6a0667f99764530d1600d64b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/wiBRHLJhzoUh\nU1aKToRu7kYvXnx4knuEhTpnprv1FAmtuJfiSVxcqPxhjdu+OIxZ4/3F7G7L7w90\nSudIDeSlBPCAtAvXkBhdGVGKif2Ecdc3TmJ3BWyPPpgC/1PuFk0l1B4ije2m4T7E\nrShUzC9TgOWoPIbT9bIIfguzYU/FeGdIjL4tO08xuhk56Zr8NaIYEfA658NsSAOP\nsbLZeFekFjckk83ZWlfmcBqzBssoh5WMBJSeVLsmI3iBWqbEAK4kMUzSk3/rXsuD\nrYOc8ErwXHJ5w/Wl9Y2IOuhl2fVQgIm7B3NzZTmKL2zNVp/CwiO0UUBF4tLf6Nih\n/2N6QkX5AgMBAAECggEAKpgHACVg7S9HrJGbozCSI6bbIan5+XlGJPdH9B6Z2PQY\nu0UJvbqgYLericrOIPhkGpJ1O+nK6ZMiKml56qwlWc9ZUalMiRcJhmJ5lY2Vqb30\nuWT4o6nphX74mo/W94duHwU5JWFDxOH7BIpW71EEgSacPKynIT1NzKuc0z0+ECVO\nCt/I5UYKQ1sLdhDlz2d4F2eklsKZ6/29Fs2qQtCxH71Y93ZJBDW4wa2C0+jH0bEK\nzvYcMDTkNSiJmCzylIE5hjXUz1EuOoke6Ab9tbPDBK1Uden2kQ6rG7PUepRWm6SI\naQqtLgXI0L54Ue9LvVbUpvZuNPSALviwdG+tFts+ZQKBgQDvEuXSQsdALRkWYECP\nJhFzWn+SnFwUFvIWdIVhd0a6tcKm3Ooxi6ANOcvU/DQCzMwKa+x6ojXPPBCpkA8z\nQFnYTDmsj066gb2u090EGeQcRybTVsFmKNGJc+8L4aHiWXvOsJf2L7tPdYvgu3E2\nos6LjvrYebQSURCoCa15DlDLvQKBgQDNVagfFbzFSY0D1UVR1wrGkbezSRobzPE2\nFPKb8owTOz83uLQhsQjaKH9r2sjH+NC0GH6AKUVRLlLlKIxi76dPQ/ffMxOlAvCo\nY8IHl2LQhWzWozB8aq9JpXaa0DgSHwKnknEsdE+XrGB02GAjcX7Q/bGDoiho+0NH\ni+yT0xLI7QKBgQCxyerxN0n31tHeSwwXqGa30ygl/nOXWQ0FV/fM6KfHt92eu5DJ\n8Zy/2ShVJo0DPAvNAD9nX3QGvhNiFcjIA2YNLXqCcjxJBKzr85BcOWjjAqLD7bN7\nZoWU44t02YHK02L37WnE4fA5AiBYquxhhid1r4mqLK+WI4TwgenoqZW6PQKBgCbB\nrjP/1FugoF9C2Ay0fDIyuuu6NpVcv4KnvYs14r6Whj4sPMPHOJaE4lgnOZKVIj98\nCBSEtbK2/aqHVsgt1/ScLaMRbvnMbkQ6YBsytdIJ/RsePj6dnGxYMOTTvGGfPM8I\nUxhC8+r6/FHRrYPDHl6wI9tmth3qny5X+NWGF5uZAoGAWYn/RoaveHLQeqIsZnv8\nGIgiPo1MLGBDXtuh5ehHDfnUIB3A4VTJwu/O3XqTT/Z+3MyQCggQLSEETukwoXDO\ndb/DzmCmEeY1Vljcaji24P4jVfZKIb6Nb06ZAQNr4a/f9qHbVjr/hfhCmSaVHtVH\nAiA0Am0CzDkyaXQjW5QrZiU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "teacher-service@teacher-sheets.iam.gserviceaccount.com",
+  "client_id": "113974323438309711411",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/teacher-service%40teacher-sheets.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
