@@ -15,6 +15,10 @@ import qrcode
 import io
 import base64
 from datetime import datetime
+import os
+import shutil
+from django.http import JsonResponse
+from django.conf import settings
 
 scopes = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(r'static\teacher-sheets-7ca6f414fc77.json', scopes)
@@ -37,6 +41,24 @@ def get_google_sheet_data(sheet_url):
     df = pd.DataFrame(data, columns=headers)
     return df
 
+def upload_image(image_name):
+    # Chemin de la source de l'image
+    source_path = os.path.join("image", image_name)
+    
+    if os.path.exists(source_path):
+        # Chemin de destination dans le dossier "uploads"
+        destination_folder = os.path.join(settings.STATIC_ROOT, "uploads")
+        # Assurez-vous que le dossier de destination existe, sinon créez-le
+        os.makedirs(destination_folder, exist_ok=True)
+        # Chemin de l'image à copier
+        source_image = source_path
+        # Copier l'image dans le dossier de destination
+        shutil.copy(source_image, destination_folder)
+        # Renvoyer le chemin de l'image dans le dossier "uploads"
+        return os.path.join(destination_folder, image_name)
+    else:
+        return None
+
 @api_view(['GET'])
 def insert_data_to_mongodb_and_send_email(request):
     client = MongoClient('mongodb://127.0.0.1:27017/nest?directConnection=true')
@@ -54,7 +76,7 @@ def insert_data_to_mongodb_and_send_email(request):
             user_data["password"] = hashed_password
             user_data["isVerify"] = True
             user_data["role"] = []
-            user_data["image"] = ""
+            user_data["image"] = upload_image("avatar.png")
             # Add createdAt and updatedAt fields
             current_time = datetime.now()
             user_data["createdAt"] = current_time
