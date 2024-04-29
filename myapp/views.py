@@ -88,7 +88,7 @@ def insert_data_to_mongodb_and_send_email(request):
             
             # Generate QR code image
             qr = qrcode.QRCode(version=1, box_size=10, border=5)
-            qr.add_data(pyotp.totp.TOTP(totp_secret).provisioning_uri(email, issuer_name="Operate Connect Career"))
+            qr.add_data(pyotp.totp.TOTP(totp_secret).provisioning_uri(email, issuer_name="DocSharePeak"))
             qr.make(fit=True)
             qr_img = qr.make_image(fill_color="black", back_color="white")
             
@@ -120,13 +120,13 @@ def send_email_with_2fa(server, to_email, password, totp_secret, qr_img_buffer):
     msg = MIMEMultipart()
     msg['From'] = SMTP_USERNAME
     msg['To'] = to_email
-    msg['Subject'] = 'Your Operate Connect Career 2FA setup'
+    msg['Subject'] = 'DocSharePeak 2FA setup'
 
-    body = f'Hello,\n\nYour password for Operate Connect Career is: {password}\n\n'
+    body = f'Hello,\n\nYour password for DocSharePeak is: {password}\n\n'
     body += 'To enhance security, we have enabled two-factor authentication (2FA) for your account.\n'
     body += f'Please use the following TOTP code to set up 2FA in your preferred authenticator app: {totp_code}\n\n'
     body += 'Scan the QR code below to add your account to the authenticator app.\n\n'
-    body += 'Best regards,\nThe Operate Connect Career Team'
+    body += 'Best regards,\nThe DocSharePeak Team'
     msg.attach(MIMEText(body, 'plain'))
     msg.attach(qr_img_attachment)
 
