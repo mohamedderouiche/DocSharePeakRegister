@@ -1,5 +1,4 @@
 from pathlib import Path
-import corsheaders
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -7,7 +6,7 @@ SECRET_KEY = 'django-insecure-cj4fc#)*p4fb(2kull8585d7_ickuxs75l3snzx=dqkil(x+i%
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -16,10 +15,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
+    'corsheaders',  # Ajout du module corsheaders
+    'rest_framework',  # Pour utiliser les
+    'myapp'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # CORS middleware should be at the top
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -27,18 +29,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'DocSharePeak.urls'
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True  # Autoriser toutes les origines pour le CORS
 
 CORS_ALLOW_CREDENTIALS = True
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',  # Add your frontend URL here
-]
 
 
 TEMPLATES = [
