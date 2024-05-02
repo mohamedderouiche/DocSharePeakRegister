@@ -20,6 +20,17 @@ import shutil
 from django.http import JsonResponse
 from django.conf import settings
 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import speech_recognition as sr
+
+
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .pdfsummarizer import summarize_pdf
+
+
 scopes = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(r'static\teacher-sheets-7ca6f414fc77.json', scopes)
 google_sheet_url = 'https://docs.google.com/spreadsheets/d/1AQugi52kUJy_qiu1_KncUmWG2E-wGbC94YDWd6hwG2Y/edit#gid=0'
@@ -131,3 +142,38 @@ def send_email_with_2fa(server, to_email, password, totp_secret, qr_img_buffer):
     msg.attach(qr_img_attachment)
 
     server.send_message(msg)
+
+
+
+
+
+@csrf_exempt
+def speech_to_text(request):
+    if request.method == 'POST':
+        r = sr.Recognizer()
+        try:
+            with sr.Microphone(device_index=0) as source:
+                print("Speak:")
+                audio = r.listen(source)
+                text = r.recognize_google(audio)
+                return JsonResponse({'text': text})
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+    else:
+        return JsonResponse({'error': 'Invalid request method'})
+
+
+
+
+
+@csrf_exempt
+def summarize_pdf_view(request):
+    if request.method == 'POST' and request.FILES.get('pdf_file'):
+        try:
+            pdf_file = request.FILES['pdf_file']
+            summary = summarize_pdf(pdf_file)
+            return JsonResponse({'summary': summary})
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Invalid request'}, status=400)
