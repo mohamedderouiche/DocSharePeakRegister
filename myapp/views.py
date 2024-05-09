@@ -19,25 +19,20 @@ import os
 import shutil
 from django.http import JsonResponse
 from django.conf import settings
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import speech_recognition as sr
+
+
 import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .pdfsummarizer import summarize_pdf
 
-# Définir BASE_DIR dans les paramètres Django
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Définir les scopes pour l'authentification OAuth2
 scopes = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-
-# Construire le chemin complet vers le fichier JSON
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-JSON_KEYFILE_PATH = os.path.join(STATIC_DIR, 'teacher-sheets-7ca6f414fc77.json')
-
-# Utiliser le chemin complet pour créer les credentials
-credentials = ServiceAccountCredentials.from_json_keyfile_name(JSON_KEYFILE_PATH, scopes)
-
-
+credentials = ServiceAccountCredentials.from_json_keyfile_name(r'static\teacher-sheets-7ca6f414fc77.json', scopes)
 google_sheet_url = 'https://docs.google.com/spreadsheets/d/1AQugi52kUJy_qiu1_KncUmWG2E-wGbC94YDWd6hwG2Y/edit#gid=0'
 
 SMTP_SERVER = 'smtp.gmail.com'
