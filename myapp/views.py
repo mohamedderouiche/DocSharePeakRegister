@@ -1,34 +1,31 @@
-import pandas as pd
-from pymongo import MongoClient
-import gspread
-import bcrypt
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.image import MIMEImage
-from oauth2client.service_account import ServiceAccountCredentials
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.decorators import api_view
-import pyotp
-import qrcode
-import io
-import base64
-from datetime import datetime
 import os
 import shutil
-from django.http import JsonResponse
-from django.conf import settings
+import base64
+import io
+from datetime import datetime
 
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+import bcrypt
+import gspread
+import pyotp
+import qrcode
+import smtplib
 import speech_recognition as sr
+import pandas as pd
 
-
-import json
+from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from oauth2client.service_account import ServiceAccountCredentials
+from pymongo import MongoClient
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
 from .pdfsummarizer import summarize_pdf
+
 
 
 scopes = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
