@@ -72,8 +72,8 @@ def upload_image(image_name):
 
 @api_view(['GET'])
 def insert_data_to_mongodb_and_send_email(request):
-    client = MongoClient('mongodb://127.0.0.1:27017/nest?directConnection=true')
-    db = client.nest
+    client = MongoClient('mongodb+srv://ferjaniwael20:7xWxxPKsiBxYdxAT@cluster0.qrfp2yq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+    db = client.test
     collection = db.users 
     print("Insert Data")
     server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
